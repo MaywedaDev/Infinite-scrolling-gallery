@@ -1,7 +1,6 @@
 import { status } from "./util.js"
 import { calcHeightAndWidth } from "./util.js"
 
-
 var next_page = 'https://api.pexels.com/v1/curated/?page=&per_page=15'
 
 const createImages = async () => {
@@ -15,8 +14,6 @@ const createImages = async () => {
 
     const response = await pexelApiRequest.json()
 
-    console.log(response)
-
     generateImages(response)
 }
 
@@ -29,7 +26,6 @@ const generateImages = (data) => {
     })
 
     next_page = data.next_page
-    console.log(next_page)
 }
 
 const createSingleImage = (el) => {
