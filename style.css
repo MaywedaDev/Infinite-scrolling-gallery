@@ -26,3 +26,60 @@ body{
 .gallery{
     margin: 30px 0;
 }
+select{
+    max-width: 300px;
+}
+
+#images{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    /* gap: 20px 10px; */
+    column-gap: 10px;
+    grid-auto-rows: minmax(10px, auto);
+    justify-content: center;
+}
+
+#images .imgbox{
+    position: relative;
+}
+
+#images .imgbox .topexels{
+    z-index: 10;
+}
+
+#images .imgbox .topexels, #images .imgbox  .credits{
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}
+
+#images .imgbox  .credits{
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+
+#images .imgbox:hover  .credits{
+    opacity: 1;
+}
+
+#images .imgbox  .credits p{
+    font-size: 1.6em;
+    line-height: 1em;
+}
+
+#images .imgbox  .credits .tophotographer{
+    color: white;
+    z-index: 20;
+}
+
+#images .imgbox img{
+    margin-bottom: 10px;
+}
