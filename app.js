@@ -3,12 +3,14 @@ import { calcHeightAndWidth } from "./util.js"
 
 var next_page = 'https://api.pexels.com/v1/curated/?page=&per_page=15'
 
+
+
 const createImages = async () => {
 
     const pexelApiRequest = await fetch(next_page, {
         method: "GET",
         headers: {
-            Authorization: "sPJBecVTFHoskjEhAhPWQnblRXHdnPeUHL5FYNGTv1OY33hmwXaUZ64n"
+            Authorization: `${import.meta.env.VITE_PEXELS_API_KEY}`
         }
     })
 
