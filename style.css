@@ -83,3 +83,7 @@ select{
 #images .imgbox img{
     margin-bottom: 10px;
 }
+
+#per_page{
+    width: 250px
+}
