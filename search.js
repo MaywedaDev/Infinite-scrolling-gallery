@@ -38,21 +38,17 @@ colorCtrls.addEventListener('change', (e) => {
     imageCont.innerHTML = ''
     color_query = e.target.value.replace('#', '')
 
-    // console.log(e.target.value)
+  
     next_page = queryBuilder(pageQuery, size_query, color_query, search_query)
     console.log(next_page)
-    // createImages(next_page, (data) => {
-    //     next_page = data
-    // });
+
 })
 
 sizeCtrls.addEventListener('change', (e) => {
     imageCont.innerHTML = ''
     size_query = e.target.value
     next_page = queryBuilder(pageQuery, size_query, color_query, search_query)
-    // createImages(next_page, (data) => {
-    //     next_page = data
-    // });
+
 })
 
 
@@ -70,6 +66,3 @@ intersectionObserver.observe(document.querySelector("#more"));
 
 
 
-// createImages(next_page, (data) => {
-//     next_page = data
-// });

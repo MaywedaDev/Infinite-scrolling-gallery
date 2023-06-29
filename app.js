@@ -13,7 +13,6 @@ pageCtrls.addEventListener('change', (e) => {
     } );
 })
 
-// window.addEventListener('scroll', getMoreImages)
 
 const intersectionObserver = new IntersectionObserver(entries => {
     if (entries[0].intersectionRatio <= 0) return;
