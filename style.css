@@ -84,6 +84,10 @@ select{
     margin-bottom: 10px;
 }
 
-#per_page{
-    width: 250px
+.filters{
+    gap: 15px;
+}
+#per_page, #size, #color{
+    width: 250px;
+    height: 40px
 }

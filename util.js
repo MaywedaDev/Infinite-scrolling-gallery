@@ -70,10 +70,12 @@ const createCredits = (name, url) => {
 }
 
 export const queryBuilder = (per_page, size, color, search) => {
-    let query = ''
-
+    let query = 'https://api.pexels.com/v1/search/'
+    if(search != ''){
+        query += `?query=${search}`
+    }
     if(per_page != "" ){
-        query += `?per_page=${per_page}`
+        query += `&per_page=${per_page}`
     }
     if (size != ''){
         query += `&size=${size}`
@@ -81,9 +83,7 @@ export const queryBuilder = (per_page, size, color, search) => {
     if(color != ''){
         query += `&color=${color}`
     }
-    if(search != ''){
-        query += `&query=${search}`
-    }
+    
 
     return query
 }
