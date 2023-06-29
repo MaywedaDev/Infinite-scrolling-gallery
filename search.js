@@ -23,43 +23,53 @@ const colorCtrls = document.getElementById('color')
 const sizeCtrls = document.getElementById('size')
 const imageCont = document.getElementById("images")
 
-searchInput.value = `${searchQuery.get('search')} photos` || ''
-header.innerHTML = searchQuery.get('search') || ''
+searchInput.value = search_query || ''
+header.innerHTML = `${search_query} photos` || ''
 
 pageCtrls.addEventListener('change', (e) => {
     pageQuery = e.target.value
     next_page = queryBuilder(pageQuery, size_query, color_query, search_query)
-    createImages(next_page);
+    createImages(next_page, (data) => {
+        next_page = data
+    });
 })
 
 colorCtrls.addEventListener('change', (e) => {
     imageCont.innerHTML = ''
-    color_query = e.target.value
+    color_query = e.target.value.replace('#', '')
+
     // console.log(e.target.value)
     next_page = queryBuilder(pageQuery, size_query, color_query, search_query)
     console.log(next_page)
-    createImages(next_page);
+    // createImages(next_page, (data) => {
+    //     next_page = data
+    // });
 })
 
 sizeCtrls.addEventListener('change', (e) => {
     imageCont.innerHTML = ''
     size_query = e.target.value
     next_page = queryBuilder(pageQuery, size_query, color_query, search_query)
-    createImages(next_page);
+    // createImages(next_page, (data) => {
+    //     next_page = data
+    // });
 })
 
-const getMoreImages = () => {
-    if(window.scrollY >= (document.documentElement.offsetHeight - window.innerHeight)){
-        console.log('reached bottom')
-        createImages(next_page, (data) => {
-            next_page = data
-        });
-    }      
-}
 
-window.addEventListener('scroll', getMoreImages)
+// window.addEventListener('scroll', getMoreImages)
+
+const intersectionObserver = new IntersectionObserver(entries => {
+    if (entries[0].intersectionRatio <= 0) return;
+    // load more content;
+    createImages(next_page, (data) => {
+        next_page = data
+    });
+  });
+  // start observing
+intersectionObserver.observe(document.querySelector("#more"));
 
 
-createImages(next_page, (data) => {
-    next_page = data
-});
+
+// createImages(next_page, (data) => {
+//     next_page = data
+// });

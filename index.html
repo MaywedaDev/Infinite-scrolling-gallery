@@ -11,14 +11,14 @@
 <body>
 	<nav class="navbar navbar-expand-lg col-primary px-4 py-3 sticky-top">
 		<div class="container-fluid align-items-center">
-		  <a class="navbar-brand py-0 mx-4 text-white" href="#">Scroll</a>
+		  <a class="navbar-brand py-0 mx-4 text-white" href="/">Scroll</a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse mx-md-4" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 			  <li class="nav-item">
-				<a class="nav-link p-0 mt-1 active text-white" aria-current="page" href="#">Home</a>
+				<a class="nav-link p-0 mt-1 active text-white" aria-current="page" href="/">Home</a>
 			  </li>
 			</ul>
 		  </div>
@@ -29,8 +29,13 @@
 			<h1 class="mb-2">
 				Scroll down to see more photos
 			</h1>
-			<form action="/search.html">
+			<form class="input-group" action="/search.html">
 				<input type="text" id="search" name="search" class="form-control" placeholder="Search for images">
+				<button class="btn col-primary">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					</svg>
+				</button>
 			</form>
 		</div>
 
@@ -53,7 +58,16 @@
 			<div id="images" class="my-4 mx-md-4 py-4">
 
 			</div>
+			<div id="more" class="p-4"></div>
+			<div class="w-full text-center" style="display: hidden;" id="end">
+                <h3>No more photos</h3>
+            </div>
 		</div>
 	  </div>
+	  <div id="footer" class="p-4 d-flex flex-column align-items-end">
+        <p>Just Scroll</p>
+        <p>MaywedaDev @2023</p>
+        <a href="https://www.pexels.com/api/documentation">Made with The Pexels API</a>
+      </div>
 </body>
 </html>

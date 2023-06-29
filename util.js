@@ -2,6 +2,10 @@ export const status = 'It works?'
 
 export const createImages = async (url, cb) => {
 
+    if(checkIfEndOfPage(url)){
+        return;
+    }
+
     const pexelApiRequest = await fetch(url, {
         method: "GET",
         headers: {
@@ -21,8 +25,13 @@ export const createImages = async (url, cb) => {
     data.photos.forEach((el) => {
         imageCont.appendChild(createSingleImage(el))
     })
-
-    cb(data.next_page)
+    if(data.next_page){
+        cb(data.next_page)
+    }
+    else{
+        cb('No more Images')
+    }
+    
 }
 
 const createSingleImage = (el) => {
@@ -88,6 +97,15 @@ export const queryBuilder = (per_page, size, color, search) => {
     return query
 }
 
+const checkIfEndOfPage = (url) => {
+    const endOfPage = document.getElementById('end')
+    if(url === 'No more Images'){
+        endOfPage.style.display = 'block'
+        return true;
+    }
+    endOfPage.style.display = 'none'
+    return false;
+}
 
 
 const calcHeightAndWidth = (width, height) => {
